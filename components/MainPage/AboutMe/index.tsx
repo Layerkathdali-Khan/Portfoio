@@ -11,9 +11,12 @@ const AboutMe = () => {
   return (
     <SectionTriangle downward={false}>
       <div className="section flex items-center justify-between gap-1">
-        {articles.map((data) => {
+        {articles.map((data, index) => {
           return (
-            <article className="h-[33rem] w-full max-w-[25rem] bg-secondary rounded-3xl shadow-medium text-center relative">
+            <article
+              key={index}
+              className="h-[33rem] w-full max-w-[25rem] bg-secondary rounded-3xl shadow-medium text-center relative"
+            >
               <figure className="w-full aspect-video bg-blue-400 rounded-3xl"></figure>
               <p className="text-text_primary px-4 mt-4">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.

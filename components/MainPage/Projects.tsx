@@ -76,8 +76,10 @@ const Projects = () => {
                     Project Overview
                   </h5>
                   <ul className="list-disc pl-8">
-                    {prj.list.map((text) => (
-                      <li className="mt-2">{text}</li>
+                    {prj.list.map((text, index) => (
+                      <li key={index} className="mt-2">
+                        {text}
+                      </li>
                     ))}
                   </ul>
                   <div className="absolute bottom-8 left-20 flex items-center gap-12 text-text_primary">

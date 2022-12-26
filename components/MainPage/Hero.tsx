@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SectionTriangle from "../SectionTriangle";
 
 import Photo from "../../assets/images/hero.png";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
             }}
           >
             <h3 className="text-6xl font-bold text-text_secondary">
-              I'm Paing Zay Lynn Htet
+              I&apos;m Paing Zay Lynn Htet
             </h3>
             <p className="text-[35px] text-text_primary mt-6">
               A Person who loves to explore the world with
@@ -43,10 +44,11 @@ const Hero = () => {
           }}
           className="w-[616px] h-[548px] object-contain bg-opacity-40 absolute right-16 bottom-0"
         >
-          <img
+          <Image
             src="/assets/images/hero.png"
             alt="Photo of me"
-            className="w-full"
+            fill
+            style={{ objectFit: "contain" }}
           />
         </motion.figure>
       </div>

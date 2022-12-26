@@ -1,5 +1,3 @@
-import React from "react";
-
 const Footer = () => {
   return (
     <footer className="h-14 bg-text_primary text-primary tracking-normal text-center grid place-items-center">
