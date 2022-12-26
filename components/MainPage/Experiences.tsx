@@ -17,21 +17,21 @@ const experiences = [
   },
   {
     image: "Pornhub",
-    company: "Google",
+    company: "Pornhub",
     company_type: "Software House",
     period: "Nov 2021 - Dec 2022",
     description: "",
   },
   {
     image: "Xnxx",
-    company: "Netflix",
+    company: "Xnxx",
     company_type: "Software House",
     period: "Nov 2021 - Dec 2022",
     description: "",
   },
   {
-    image: "Doctor Hmone Gyi",
-    company: "Tesla",
+    image: "fadsf",
+    company: "Porn Dude",
     company_type: "Software House",
     period: "Nov 2021 - Dec 2022",
     description: "",
@@ -51,7 +51,7 @@ const Experiences = () => {
         <Swiper
           modules={[Autoplay]}
           autoplay={{
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           slidesPerView={1}

@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionTriangle from "../SectionTriangle";
 
+import Photo from "../../assets/images/hero.png";
+
 const Hero = () => {
   return (
     <SectionTriangle>
@@ -29,9 +31,24 @@ const Hero = () => {
             </p>
           </motion.div>
         </article>
-        <figure className="w-[616px] h-[548px] bg-text_primary bg-opacity-40 absolute right-16 bottom-0">
-          Image
-        </figure>
+        <motion.figure
+          initial={{ y: 600 }}
+          animate={{
+            y: 0,
+            animation: "ease",
+            transition: {
+              duration: 1,
+              delay: 2.8,
+            },
+          }}
+          className="w-[616px] h-[548px] object-contain bg-opacity-40 absolute right-16 bottom-0"
+        >
+          <img
+            src="/assets/images/hero.png"
+            alt="Photo of me"
+            className="w-full"
+          />
+        </motion.figure>
       </div>
     </SectionTriangle>
   );

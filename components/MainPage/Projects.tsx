@@ -57,7 +57,7 @@ const Projects = () => {
           modules={[Autoplay]}
           spaceBetween={300}
           autoplay={{
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           slidesPerView={1}

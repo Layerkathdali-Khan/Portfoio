@@ -49,4 +49,7 @@ body {
   .nav_menu {
     @apply cursor-pointer px-4 rounded-xl text-2xl font-medium relative;
   }
+  .input {
+    @apply bg-transparent w-full max-w-lg h-12 border-b-2 border-b-current placeholder:text-text_primary placeholder:opacity-80;
+  }
 }
