@@ -9,14 +9,16 @@ const withTriangle = ({
 }) => {
   return (
     <section>
-      {children}
-      <div
-        className={`w-0 h-0 absolute -top-8 left-0 z-0 border-l-transparent border-l-[100vw] ${
-          downward
-            ? "border-b-[108vh] border-b-secondary"
-            : "border-t-[108vh] border-t-secondary"
-        }`}
-      ></div>
+      <div className="relative overflow-hidden">
+        {children}
+        <div
+          className={`w-0 h-0 absolute -top-0 left-0 z-0 border-l-transparent border-l-[100vw] ${
+            downward
+              ? "border-b-[100vh] border-b-secondary"
+              : "border-t-[100vh] border-t-secondary"
+          }`}
+        ></div>
+      </div>
     </section>
   );
 };

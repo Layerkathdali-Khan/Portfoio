@@ -17,6 +17,9 @@ module.exports = {
         white: "#ffffff",
         black: "#000000",
       },
+      boxShadow: {
+        medium: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      },
     },
   },
   plugins: [],

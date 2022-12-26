@@ -1,31 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+
+const NavMenus = [
+  ["A", "b", "o", "u", "t"],
+  ["S", "k", "i", "l", "l", "s"],
+  ["E", "x", "p"],
+  ["P", "r", "o", "j", "e", "c", "t", "s"],
+  ["R", "e", "v", "i", "e", "w", "s"],
+  ["C", "o", "n", "t", "a", "c", "t"],
+];
 
 const Header = () => {
   return (
-    <header className="pt-8 absolute top-0 left-8 z-50">
+    <header className="pt-12 absolute top-0 left-12 z-50">
       <nav>
-        <ul className="text-text_primary flex items-center justify-start gap-8 text-3xl font-medium">
-          <li className="hover:bg-secondary cursor-pointer py-2 px-8 rounded-xl transition-colors ">
-            About
-          </li>
-          <li className="hover:bg-secondary cursor-pointer py-2 px-8 rounded-xl transition-colors ">
-            Skills
-          </li>
-          <li className="hover:bg-secondary cursor-pointer py-2 px-8 rounded-xl transition-colors ">
-            Exp
-          </li>
-          <li className="hover:bg-secondary cursor-pointer py-2 px-8 rounded-xl transition-colors ">
-            Projects
-          </li>
-          <li className="hover:bg-secondary cursor-pointer py-2 px-8 rounded-xl transition-colors ">
-            Reviews
-          </li>
-          <li className="hover:bg-secondary cursor-pointer py-2 px-8 rounded-xl transition-colors ">
-            Contact
-          </li>
+        <ul className="text-text_primary flex items-center justify-start gap-6 text-3xl font-medium">
+          {NavMenus.map((menu, index) => (
+            <NavMenu letters={menu} key={index} />
+          ))}
         </ul>
       </nav>
     </header>
+  );
+};
+
+const NavMenu = ({ letters }: { letters: string[] }) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start((i) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.1,
+      },
+    }));
+  }, []);
+
+  const startHoverAnimation = () => {
+    controls.start((i) => ({
+      y: -7,
+      transition: {
+        type: "spring",
+        delay: i * 0.075,
+        stiffness: 200,
+      },
+    }));
+  };
+  const startInitialAnimation = () => {
+    controls.start((i) => ({
+      y: 0,
+      transition: {
+        type: "spring",
+        delay: i * 0.075,
+        stiffness: 200,
+      },
+    }));
+  };
+
+  return (
+    <li
+      className="nav_menu"
+      onMouseEnter={() => startHoverAnimation()}
+      onFocus={() => startHoverAnimation()}
+      onMouseLeave={() => startInitialAnimation()}
+      onBlur={() => startInitialAnimation()}
+    >
+      <a href="#">
+        {letters.map((letter, index) => (
+          <motion.span
+            style={{ display: "inline-block" }}
+            initial={{ scale: 0, opacity: 0 }}
+            custom={index}
+            animate={controls}
+            key={index}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </a>
+    </li>
   );
 };
 
