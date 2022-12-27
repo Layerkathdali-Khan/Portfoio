@@ -1,37 +1,41 @@
+import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay } from "swiper";
 import SectionTriangle from "../SectionTriangle";
+
+import Jordi from "../../public/assets/images/jordi.jpg";
+import Jhonny from "../../public/assets/images/jhonny.jpeg";
+import Shigeo from "../../public/assets/images/shigeo.jpg";
+import Xandar from "../../public/assets/images/xandar.jpg";
 
 const reviews = [
   {
-    image:
-      "https://pbs.twimg.com/profile_images/1320707253582721026/R6BwHjVs_400x400.jpg",
-    review: "He was my teacher when I'm studying at the Brazzers University",
+    image: Jordi,
+    review:
+      "He was my teacher when I'm studying at the Brazzers University. Best at it when it's come to teaching.",
     name: "Jordi El Niño Polla",
     position: "Actor",
   },
   {
-    image:
-      "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0683f120fcdf7fc5be7d7f4eb2422f8b~c5_720x720.jpeg?x-expires=1672117200&x-signature=ev%2FPiEQ9Ph4jjuZWusEvsbyIsZg%3D",
+    image: Jhonny,
     review:
       "I was his favorite yoga instructor. He likes my instructions and services",
     name: "Jhonny Sinns",
     position: "Yoga Instructor",
   },
   {
-    image:
-      "https://i.pinimg.com/280x280_RS/c1/e5/3a/c1e53a874b03882102924071951495bf.jpg",
+    image: Shigeo,
     review:
       "知末な口市ソヤネワ判球キエト宿積ユニオム見提ヨウ携地商トじラ覧85車ルうぶぎ来権をっ配貞策小こずらク告呆ざぐフ。",
     name: "Shigeo Tokuda",
     position: "Just Old Grandpa",
   },
   {
-    image:
-      "https://i.pinimg.com/originals/65/6e/28/656e28311a9f85708b9de51d9b892be0.jpg",
+    image: Xandar,
     review:
       "adsflkas asdf sdfasdf asdf asdfa sdf asdfasd fa sdfasd fadsf asdf asdf asd f dsf",
-    name: "Xandar Covus",
+    name: "Xandar Corvus",
     position: "Step Brother",
   },
 ];
@@ -40,16 +44,39 @@ const Reviews = () => {
   return (
     <SectionTriangle downward={false}>
       <div className="section flex items-center justify-center">
-        <Swiper spaceBetween={200} slidesPerView={3} loop={true}>
+        <Swiper
+          modules={[EffectCoverflow, Autoplay]}
+          effect="coverflow"
+          spaceBetween={200}
+          slidesPerView={3}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          coverflowEffect={{ rotate: 90, slideShadows: false }}
+        >
           {reviews.map((review) => (
             <SwiperSlide key={review.name}>
               <article className="w-full max-w-xs h-[27rem] text-white bg-black rounded-3xl relative flex flex-col">
-                <div className="review w-full h-[calc(100%-3rem)]">
+                <div className="review w-full h-full relative">
                   <p className="text-center px-6 pt-8">
                     &quot; {review.review} &quot;
                   </p>
                 </div>
-                <div className="w-full h-full bg-[#d9d9d9]"></div>
+                <div className="w-full h-[calc(100%-9rem)] bg-[#d9d9d9] relative text-black flex flex-col items-center justify-end pb-8">
+                  <figure className="absolute left-1/2 -top-12 -translate-x-1/2 w-24 aspect-square rounded-full">
+                    <Image
+                      src={review.image}
+                      alt={review.name}
+                      fill
+                      style={{ objectFit: "cover", borderRadius: "100vw" }}
+                    />
+                  </figure>
+                  <h4 className="text-xl font-bold mb-2">{review.name}</h4>
+                  <h5 className="">{review.position}</h5>
+                </div>
               </article>
             </SwiperSlide>
           ))}

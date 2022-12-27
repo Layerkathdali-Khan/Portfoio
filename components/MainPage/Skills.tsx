@@ -32,8 +32,9 @@ const Skills = () => {
         <Swiper
           modules={[Autoplay]}
           autoplay={{
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           slidesPerView={3}
           spaceBetween={30}

@@ -59,6 +59,7 @@ const Projects = () => {
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           slidesPerView={1}
           loop={true}

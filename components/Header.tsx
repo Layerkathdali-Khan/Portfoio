@@ -12,7 +12,7 @@ const NavMenus = [
 
 const Header = () => {
   return (
-    <header className="pt-12 absolute top-0 left-12 z-50">
+    <header className="pt-12 absolute top-0 left-16 z-50">
       <nav>
         <ul className="text-text_primary flex items-center justify-start gap-6 text-3xl font-medium">
           {NavMenus.map((menu, index) => (
@@ -42,7 +42,7 @@ const NavMenu = ({ letters }: { letters: string[] }) => {
       y: -7,
       transition: {
         type: "spring",
-        delay: i * 0.075,
+        delay: i * 0.05,
         stiffness: 200,
       },
     }));
@@ -52,7 +52,7 @@ const NavMenu = ({ letters }: { letters: string[] }) => {
       y: 0,
       transition: {
         type: "spring",
-        delay: i * 0.075,
+        delay: i * 0.05,
         stiffness: 200,
       },
     }));
